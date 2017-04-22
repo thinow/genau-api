@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:thinow/genau-api.git",
   "author": "Thierry Nowak <thinow@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
