@@ -1,0 +1,8 @@
+{
+  "name": "genau-api",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:thinow/genau-api.git",
+  "author": "Thierry Nowak <thinow@gmail.com>",
+  "license": "MIT"
+}
