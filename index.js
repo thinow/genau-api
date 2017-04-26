@@ -36,7 +36,7 @@ app.get('/api/question/article', function(request, response) {
 
 app.get('/api/question/perfect', function(request, response) {
   response.send(pickFrom([
-    { category: 'perfect', label: 'machen', options: [{ value: 'er hat gemacht', correct: true }, { value: 'er bin gemacht' }, { value: 'er hat gemachen' }, { value: 'er bin gemachen' }] },
+    { category: 'perfect', label: 'machen', options: [{ value: 'er hat gemacht', correct: true }, { value: 'er ist gemacht' }, { value: 'er hat gemachen' }, { value: 'er ist gemachen' }] },
     { category: 'perfect', label: 'tun', options: [{ value: 'er hat getan', correct: true }, { value: 'er hat getun' }, { value: 'er hat tan' }, { value: 'er hat tun' }] },
     { category: 'perfect', label: 'vergessen', options: [{ value: 'er hat vergessen', correct: true }, { value: 'er hat vergesst' }, { value: 'er hat vergegessen' }, { value: 'er hat vergegesst' }] }
   ]));
