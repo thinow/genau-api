@@ -25,25 +25,21 @@ function pickFrom(array) {
 }
 
 app.get('/api/question/article', function(request, response) {
-  const data = [
+  response.send(pickFrom([
     { category: 'article', label: 'Tier', options: [{ value: 'der' }, { value: 'die' }, { value: 'das', correct: true }] },
     { category: 'article', label: 'Tisch', options: [{ value: 'der', correct: true }, { value: 'die' }, { value: 'das' }] },
     { category: 'article', label: 'Stuhl', options: [{ value: 'der', correct: true }, { value: 'die' }, { value: 'das' }] },
     { category: 'article', label: 'Fenster', options: [{ value: 'der' }, { value: 'die' }, { value: 'das', correct: true }] },
     { category: 'article', label: 'Stimmung', options: [{ value: 'der' }, { value: 'die', correct: true }, { value: 'das' }] }
-  ];
-
-  response.send(pickFrom(data));
+  ]));
 });
 
 app.get('/api/question/perfect', function(request, response) {
-  const data = [
+  response.send(pickFrom([
     { category: 'perfect', label: 'machen', options: [{ value: 'er hat gemacht', correct: true }, { value: 'er bin gemacht' }, { value: 'er hat gemachen' }, { value: 'er bin gemachen' }] },
     { category: 'perfect', label: 'tun', options: [{ value: 'er hat getan', correct: true }, { value: 'er hat getun' }, { value: 'er hat tan' }, { value: 'er hat tun' }] },
     { category: 'perfect', label: 'vergessen', options: [{ value: 'er hat vergessen', correct: true }, { value: 'er hat vergesst' }, { value: 'er hat vergegessen' }, { value: 'er hat vergegesst' }] }
-  ];
-
-  response.send(pickFrom(data));
+  ]));
 });
 
 app.listen(app.get('port'), function() {
