@@ -41,7 +41,7 @@ const PRETERIT = [
   { category: 'preterit', label: 'vergessen', translation: 'to forget', options: [{ value: 'er vergaß', correct: true }, { value: 'er vergiß' }, { value: 'er vergesst' }, { value: 'er vergesset' }] }
 ];
 
-const ALL = Array.concat(ARTICLE, PLURAL, PERFECT, PRETERIT);
+const ALL = [].concat(ARTICLE, PLURAL, PERFECT, PRETERIT);
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
