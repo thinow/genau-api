@@ -35,13 +35,13 @@ const PERFECT = [
   { category: 'perfect', label: 'vergessen', translation: 'to forget', options: [{ value: 'er hat vergessen', correct: true }, { value: 'er hat vergesst' }, { value: 'er hat vergegessen' }, { value: 'er hat vergegesst' }] }
 ];
 
-const PRETERIT = [
-  { category: 'preterit', label: 'machen', translation: 'to do, to make', options: [{ value: 'er machte', correct: true }, { value: 'er macht' }, { value: 'er mochte' }, { value: 'er möchte' }] },
-  { category: 'preterit', label: 'tun', translation: 'to do', options: [{ value: 'er tut', correct: true }, { value: 'er tan' }, { value: 'er tute' }, { value: 'er tante' }] },
-  { category: 'preterit', label: 'vergessen', translation: 'to forget', options: [{ value: 'er vergaß', correct: true }, { value: 'er vergiß' }, { value: 'er vergesst' }, { value: 'er vergesset' }] }
+const SIMPLE_PAST = [
+  { category: 'simple-past', label: 'machen', translation: 'to do, to make', options: [{ value: 'er machte', correct: true }, { value: 'er macht' }, { value: 'er mochte' }, { value: 'er möchte' }] },
+  { category: 'simple-past', label: 'tun', translation: 'to do', options: [{ value: 'er tut', correct: true }, { value: 'er tan' }, { value: 'er tute' }, { value: 'er tante' }] },
+  { category: 'simple-past', label: 'vergessen', translation: 'to forget', options: [{ value: 'er vergaß', correct: true }, { value: 'er vergiß' }, { value: 'er vergesst' }, { value: 'er vergesset' }] }
 ];
 
-const ALL = [].concat(ARTICLE, PLURAL, PERFECT, PRETERIT);
+const ALL = [].concat(ARTICLE, PLURAL, PERFECT, SIMPLE_PAST);
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -66,8 +66,8 @@ app.get('/api/question/perfect', function(request, response) {
   response.send(pickFrom(PERFECT));
 });
 
-app.get('/api/question/preterit', function(request, response) {
-  response.send(pickFrom(PRETERIT));
+app.get('/api/question/simple-past', function(request, response) {
+  response.send(pickFrom(SIMPLE_PAST));
 });
 
 app.get('/api/question/all', function(request, response) {
