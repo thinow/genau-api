@@ -1,4 +1,6 @@
 const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -55,25 +57,44 @@ function pickFrom(array) {
 }
 
 app.get('/api/question/article', function(request, response) {
+  database.collection('test').insertOne({ category: 'article', date: new Date() });
   response.send(pickFrom(ARTICLE));
 });
 
 app.get('/api/question/plural', function(request, response) {
+  database.collection('test').insertOne({ category: 'plural', date: new Date() });
   response.send(pickFrom(PLURAL));
 });
 
 app.get('/api/question/perfect', function(request, response) {
+  database.collection('test').insertOne({ category: 'perfect', date: new Date() });
   response.send(pickFrom(PERFECT));
 });
 
 app.get('/api/question/simple-past', function(request, response) {
+  database.collection('test').insertOne({ category: 'simple-past', date: new Date() });
   response.send(pickFrom(SIMPLE_PAST));
 });
 
 app.get('/api/question/all', function(request, response) {
+  database.collection('test').insertOne({ category: 'all', date: new Date() });
   response.send(pickFrom(ALL));
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+let database;
+
+const mongodb_uri = process.env.MONGODB_URI;
+
+console.log('Connection to MongoDB', mongodb_uri);
+MongoClient.connect(mongodb_uri, function(error, db) {
+  if (error) {
+    return console.error('Cannot connect to MongoDB', error);
+  }
+
+  database = db;
+
+  app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+  })
+
 });

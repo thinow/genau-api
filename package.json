@@ -6,9 +6,10 @@
   "author": "Thierry Nowak <thinow@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26"
   },
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js"
   }
 }
