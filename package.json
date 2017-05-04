@@ -10,11 +10,12 @@
     "mongodb": "^2.2.26"
   },
   "scripts": {
-    "start": "babel-node index.es6.js --presets es2015,stage-2"
+    "start": "nodemon index.es6.js --exec babel-node --presets es2015,stage-2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.11.0"
   }
 }
