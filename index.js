@@ -43,7 +43,7 @@ const SIMPLE_PAST = [
   { category: 'simple-past', label: 'vergessen', translation: 'to forget', answers: { right: 'er vergaß', wrong: ['er vergiß', 'er vergesst', 'er vergesset'] } }
 ];
 
-const ALL = [].concat(ARTICLE, PLURAL, PERFECT, SIMPLE_PAST);
+const ALL = [ ...ARTICLE, ...PLURAL, ...PERFECT, ...SIMPLE_PAST ];
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
