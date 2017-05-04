@@ -12,6 +12,7 @@
   "scripts": {
     "start": "nodemon lib/index.js --exec babel-node",
     "test": "jest",
+    "postinstall": "npm run build",
     "build": "babel lib -d dist",
     "serve": "node dist/index.js"
   },
