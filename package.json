@@ -10,10 +10,10 @@
     "mongodb": "^2.2.26"
   },
   "scripts": {
-    "start": "nodemon lib/index.es6.js --exec babel-node",
+    "start": "nodemon lib/index.js --exec babel-node",
     "test": "jest",
     "build": "babel lib -d dist",
-    "serve": "node dist/index.es6.js"
+    "serve": "node dist/index.js"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
