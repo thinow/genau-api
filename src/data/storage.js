@@ -17,11 +17,16 @@ const storage = {
     });
   },
 
-  pick: ({category, then : callback}) => {
-    storage.db.collection('question').findOne({ category }, (error, found) => {
+  pick: ({ category, then : callback }) => {
+    const aggregation = [
+      category && { $match: { category } },
+      { $sample: { size: 1 } }
+    ].filter(item => !!item);
+
+    storage.db.collection('question').aggregate(aggregation, (error, array) => {
       if (error) console.error('Error during database request', error);
-      
-      callback(found);
+
+      callback(array.pop());
     })
   }
 };
