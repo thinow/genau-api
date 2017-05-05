@@ -19,13 +19,13 @@ app.get('/api/status', (request, response) => {
 });
 
 app.get('/api/question/all', (request, response) => {
-  response.send(datastorage.pick());
+  datastorage.pick({ then: question => response.send(question) })
 });
 
 app.get('/api/question/:category', (request, response) => {
   const { category } = request.params;
 
-  response.send(datastorage.pick(category));
+  datastorage.pick({ category, then: question => response.send(question) })
 });
 
 datastorage.connect(() => {

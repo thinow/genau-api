@@ -17,7 +17,13 @@ const storage = {
     });
   },
 
-  pick: (category) => storage.db.collection('question').find({ category })
+  pick: ({category, then : callback}) => {
+    storage.db.collection('question').findOne({ category }, (error, found) => {
+      if (error) console.error('Error during database request', error);
+      
+      callback(found);
+    })
+  }
 };
 
 export default storage;
