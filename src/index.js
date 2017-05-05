@@ -1,15 +1,16 @@
 import express from 'express';
-import { MongoClient } from 'mongodb';
 import { env } from './core/core';
-import data, { pickFrom } from './data/hardcoded';
+import datastorage from './data/storage';
+
+const PORT = env('PORT');
 
 const app = express();
 
-app.set('port', env('PORT'));
+app.set('port', PORT);
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use((request, response, next) => {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
@@ -17,27 +18,18 @@ app.get('/api/status', (request, response) => {
   response.send({ status: 'OK' });
 });
 
+app.get('/api/question/all', (request, response) => {
+  response.send(datastorage.pick());
+});
+
 app.get('/api/question/:category', (request, response) => {
   const { category } = request.params;
 
-  database.collection('test').insertOne({ category, date: new Date() });
-  response.send(pickFrom(data[category]));
+  response.send(datastorage.pick(category));
 });
 
-let database;
-
-const mongodb_uri = env('MONGODB_URI');
-
-console.log('Connection to MongoDB', mongodb_uri);
-MongoClient.connect(mongodb_uri, function(error, db) {
-  if (error) {
-    return console.error('Cannot connect to MongoDB', error);
-  }
-
-  database = db;
-
-  app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
-  })
-
+datastorage.connect(() => {
+  app.listen(PORT, () => {
+    console.log(`Web server is running on port ${PORT}`);
+  });
 });
