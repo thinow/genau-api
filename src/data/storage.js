@@ -5,9 +5,9 @@ const storage = {
 
   db: {},
 
-  connect: (next) => {
+  connect: (url, next) => {
     console.log('Connecting to MongoDB...');
-    MongoClient.connect(env('MONGODB_URI'), (error, db) => {
+    MongoClient.connect(url, (error, db) => {
       if (error) return console.error('Cannot connect to MongoDB', error);
 
       console.log('Connected to MongoDB');
