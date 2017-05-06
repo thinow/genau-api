@@ -1,19 +1,20 @@
 import { MongoClient } from 'mongodb';
-import { env } from '../core/core';
 
 const storage = {
 
   db: {},
 
-  connect: (url, next) => {
-    console.log('Connecting to MongoDB...');
-    MongoClient.connect(url, (error, db) => {
-      if (error) return console.error('Cannot connect to MongoDB', error);
+  connect: (url) => {
+    return new Promise((resolve, reject) => {
+      console.log('Connecting to MongoDB...');
+      MongoClient.connect(url, (error, db) => {
+        if (error) return reject(error);
 
-      console.log('Connected to MongoDB');
+        console.log('Connected to MongoDB');
 
-      storage.db = db;
-      next();
+        storage.db = db;
+        resolve();
+      });
     });
   },
 
