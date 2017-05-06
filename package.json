@@ -6,11 +6,11 @@
   "author": "Thierry Nowak <thinow@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.2",
-    "mongodb": "^2.2.26",
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26"
   },
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
