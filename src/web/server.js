@@ -28,4 +28,8 @@ app.get('/api/question/:category', (request, response) => {
   handle({ response, promise: dataStorage.pick(category) });
 });
 
+app.start = (port) => {
+  return new Promise((resolve) => app.listen(port, resolve));
+};
+
 export default app;

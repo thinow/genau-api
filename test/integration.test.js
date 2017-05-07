@@ -1,4 +1,4 @@
-import dataStorage from './data/storage';
+import dataStorage from '../src/data/storage';
 
 it('Integration tests', async(done) => {
   await dataStorage.connect('mongodb://localhost:27017/genau');
