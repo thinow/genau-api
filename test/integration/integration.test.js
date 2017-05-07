@@ -1,6 +1,6 @@
 import http from 'http';
-import start from '../src/start';
-import webServer from '../src/web/server';
+import start from '../../src/start';
+import webServer from '../../src/web/server';
 import { port, dbConnectionUrl } from './constants';
 
 const startServer = ({ port, dbConnectionUrl }) => (

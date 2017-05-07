@@ -1,4 +1,4 @@
-import dataStorage from '../src/data/storage';
+import dataStorage from '../../src/data/storage';
 import { dbConnectionUrl } from './constants';
 
 const expectToBeQuestion = (question) => {
