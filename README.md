@@ -33,6 +33,15 @@ npm run test
 
 You can send me your modifications [by creating a pull request](https://github.com/thinow/genau-api/pulls).
 
+## How to run the integration tests ?
+
+This project contains some end-to-end test which assume that a running MongoDB server is running in local.
+
+To help you to set up the data, you can use this command line :
+```bash
+mongoimport -h localhost:27017 -d genau -c question --file ./test/resources/question.dump
+```
+
 ## How to report a bug ?
 
 If you've seen any problem by using the app, please [create a new issue](https://github.com/thinow/genau/issues/new). Many thanks !

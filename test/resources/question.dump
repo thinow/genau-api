@@ -1,0 +1,16 @@
+{"_id":{"$oid":"590c7e4ff36d280130d0573e"},"answers":{"right":"das","wrong":["der","die"]},"category":"article","label":"Tier","translation":"animal"}
+{"_id":{"$oid":"590c7f61f36d280130d05783"},"answers":{"right":"er hat gemacht","wrong":["er ist gemacht","er hat gemachen","er ist gemachen"]},"category":"perfect","label":"machen","translation":"to do, to make"}
+{"_id":{"$oid":"590cef95734d1d53c5f9a1c5"},"answers":{"right":"er hat vergessen","wrong":["er hat vergesst","er hat vergegessen","er ist vergegesst"]},"category":"perfect","label":"vergessen","translation":"to forget"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b210"},"answers":{"right":"das","wrong":["der","die"]},"category":"article","label":"Fenster","translation":"window"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b211"},"answers":{"right":"der","wrong":["die","das"]},"category":"article","label":"Tisch","translation":"table"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b212"},"answers":{"right":"der","wrong":["die","das"]},"category":"article","label":"Stuhl","translation":"chair"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b213"},"answers":{"right":"die","wrong":["der","das"]},"category":"article","label":"Stimme","translation":"voice"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b214"},"answers":{"right":"die Stühle","wrong":["die Stühlen","die Stuhle","die Stuhlen"]},"category":"plural","label":"Stuhl","translation":"chair"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b215"},"answers":{"right":"die Tiere","wrong":["die Tier","die Tieren","die Tiern"]},"category":"plural","label":"Tier","translation":"animal"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b216"},"answers":{"right":"die Tische","wrong":["die Tisch","die Tischen","die Tischn"]},"category":"plural","label":"Tisch","translation":"table"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b217"},"answers":{"right":"die Fenster","wrong":["die Fenstern","die Fensteren","die Fenstere"]},"category":"plural","label":"Fenster","translation":"window"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b218"},"answers":{"right":"die Stimmen","wrong":["die Stimme","die Stimmung","die Stimmüng"]},"category":"plural","label":"Stimme","translation":"voice"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b219"},"answers":{"right":"er hat getan","wrong":["er hat getun","er hat tan","er hat tun"]},"category":"perfect","label":"tun","translation":"to do"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b21a"},"answers":{"right":"er tut","wrong":["er tan","er tute","er tante"]},"category":"simple-past","label":"tun","translation":"to do"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b21b"},"answers":{"right":"er machte","wrong":["er macht","er mochte","er möchte"]},"category":"simple-past","label":"machen","translation":"to do, to make"}
+{"_id":{"$oid":"590d79cbcac5c45d4378b21c"},"answers":{"right":"er vergaß","wrong":["er vergiß","er vergesst","er vergesset"]},"category":"simple-past","label":"vergessen","translation":"to forget"}
