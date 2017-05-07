@@ -1,35 +1,51 @@
 import http from 'http';
 import start from '../src/start';
 import webServer from '../src/web/server';
-import enableDestroy from 'server-destroy';
 
-const startServer = (port, dbConnectionUrl) => {
-  return new Promise((resolve) => start({ port, dbConnectionUrl, next: resolve }));
-};
+const port = 5001;
+const dbConnectionUrl = 'mongodb://localhost:27017/genau';
+
+const startServer = ({ port, dbConnectionUrl }) => (
+  new Promise((resolve) => start({ port, dbConnectionUrl, next: resolve }))
+);
+
+const request = ({ path, port }) => (
+  new Promise((resolve) => {
+    http.get(`http://localhost:${port}${path}`, response => resolve(response));
+  })
+);
 
 describe('Integration Tests', async() => {
 
-  afterEach((done) => {
+  beforeAll(async() => {
+    await startServer({ port, dbConnectionUrl });
+  });
+
+  afterAll((done) => {
     webServer.close(done);
   });
 
-  it('Integration Tests', async() => {
+  it('API Status', async() => {
+    // when
+    const response = await request({ port, path: '/api/status' });
 
-    const port = 5001;
-    const dbConnectionUrl = 'mongodb://localhost:27017/genau';
+    // then
+    expect(response.statusCode).toEqual(200);
+  });
 
-    await startServer(port, dbConnectionUrl);
-    enableDestroy(webServer);
+  it('Question (all)', async() => {
+    // when
+    const response = await request({ port, path: '/api/question/all' });
 
-    const promise = new Promise((resolve) => {
-      http.get(`http://localhost:${port}/api/status`, response => {
-        console.log('REQUEST');
-        resolve(response);
-      });
-    });
+    // then
+    expect(response.statusCode).toEqual(200);
+  });
 
-    const response = await promise;
+  it('Question (article)', async() => {
+    // when
+    const response = await request({ port, path: '/api/question/article' });
 
+    // then
     expect(response.statusCode).toEqual(200);
   });
 
