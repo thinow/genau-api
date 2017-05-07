@@ -1,9 +1,7 @@
 import http from 'http';
 import start from '../src/start';
 import webServer from '../src/web/server';
-
-const port = 5001;
-const dbConnectionUrl = 'mongodb://localhost:27017/genau';
+import { port, dbConnectionUrl } from './constants';
 
 const startServer = ({ port, dbConnectionUrl }) => (
   new Promise((resolve) => start({ port, dbConnectionUrl, next: resolve }))
