@@ -10,4 +10,3 @@ dataStorage.connect(MONGODB_URI).then(() => {
     console.log(`Web server is running on port ${PORT}`);
   });
 });
-

@@ -13,14 +13,19 @@ app.get('/api/status', (request, response) => {
   response.send({ status: 'OK' });
 });
 
+const handle = ({ promise, response }) => {
+  promise
+    .then(result => response.send(result))
+    .catch(error => response.status(500).send({ error }));
+};
+
 app.get('/api/question/all', (request, response) => {
-  dataStorage.pick({ then: question => response.send(question) })
+  handle({ response, promise: dataStorage.pick() });
 });
 
 app.get('/api/question/:category', (request, response) => {
   const { category } = request.params;
-
-  dataStorage.pick({ category, then: question => response.send(question) })
+  handle({ response, promise: dataStorage.pick(category) });
 });
 
 export default app;
