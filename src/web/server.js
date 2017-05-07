@@ -29,7 +29,10 @@ app.get('/api/question/:category', (request, response) => {
 });
 
 app.start = (port) => {
-  return new Promise((resolve) => app.listen(port, resolve));
+  return new Promise((resolve) => {
+    const httpServer = app.listen(port, resolve)
+    app.close = httpServer.close;
+  });
 };
 
 export default app;
